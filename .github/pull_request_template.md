@@ -1,13 +1,10 @@
-**Issue #:** 
+**Issue #:**
 
 **Description of changes:**
 
-
 **Testing**
-1. Have you successfully run `npm run build:release` locally?
 
-2. How did you test these changes?
+1. How did you test these changes?
+2. Can these changes be tested using one of the demo application? If yes, which demo application can be used to test it?
 
-3. If you made changes to the component library, have you provided corresponding documentation changes?
-
-By submitting this pull request, I confirm that my contribution is made under the terms of the Apache 2.0 license.
+By submitting this pull request, I confirm that you can use, modify, copy, and redistribute this contribution, under the terms of your choice.

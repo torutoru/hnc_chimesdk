@@ -4,7 +4,7 @@
 import React from 'react';
 import {
   ControlBar,
-  AudioInputVFControl,
+  AudioInputControl,
   VideoInputControl,
   ContentShareControl,
   AudioOutputControl,
@@ -42,7 +42,7 @@ const MeetingControls = () => {
           onClick={handleToggle}
           label="Menu"
         />
-        <AudioInputVFControl />
+        <AudioInputControl />
         <VideoInputControl />
         <ContentShareControl />
         <AudioOutputControl />

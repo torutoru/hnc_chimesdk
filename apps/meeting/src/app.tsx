@@ -9,8 +9,7 @@ import {
   MeetingProvider,
   NotificationProvider,
   darkTheme,
-  GlobalStyles,
-  VoiceFocusProvider,
+  GlobalStyles
 } from 'amazon-chime-sdk-component-library-react';
 
 import { AppStateProvider, useAppState } from './providers/AppStateProvider';
@@ -29,7 +28,6 @@ const App: FC = () => (
         <NotificationProvider>
           <Notifications />
           <ErrorProvider>
-            <VoiceFocusProvider>
               <MeetingProvider {...meetingConfig}>
                 <NavigationProvider>
                   <Switch>
@@ -47,7 +45,6 @@ const App: FC = () => (
                   </Switch>
                 </NavigationProvider>
               </MeetingProvider>
-            </VoiceFocusProvider>
           </ErrorProvider>
         </NotificationProvider>
       </Theme>
