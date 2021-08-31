@@ -1,4 +1,4 @@
-// Copyright 2020-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: Apache-2.0
 
 import React from 'react';
@@ -10,7 +10,7 @@ import {
   AudioOutputControl,
   ControlBarButton,
   useUserActivityState,
-  Dots,
+  Dots
 } from 'amazon-chime-sdk-component-library-react';
 
 import EndMeetingControl from '../EndMeetingControl';
@@ -18,12 +18,15 @@ import { useNavigation } from '../../providers/NavigationProvider';
 import { StyledControls } from './Styled';
 
 const MeetingControls = () => {
-  const { toggleNavbar, closeRoster, showRoster } = useNavigation();
+  const { toggleNavbar, closeRoster, showRoster, showChat, closeChat} = useNavigation();
   const { isUserActive } = useUserActivityState();
 
   const handleToggle = () => {
     if (showRoster) {
       closeRoster();
+    }
+    if (showChat){
+      closeChat();
     }
 
     toggleNavbar();

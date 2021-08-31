@@ -1,4 +1,4 @@
-// Copyright 2020-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: Apache-2.0
 
 import React from 'react';
@@ -13,27 +13,26 @@ import { useNavigation } from '../../providers/NavigationProvider';
 import MeetingDetails from '../../containers/MeetingDetails';
 import MeetingControls from '../../containers/MeetingControls';
 import useMeetingEndRedirect from '../../hooks/useMeetingEndRedirect';
-import DynamicMeetingControls from '../../containers/DynamicMeetingControls';
-import { MeetingMode } from '../../types';
+import { RealitimeSubscribeStateProvider } from '../../providers/RealtimeSubscribeProvider';
 
-const MeetingView = (props: { mode: MeetingMode, }) => {
+const MeetingView = () => {
   useMeetingEndRedirect();
-  const { showNavbar, showRoster } = useNavigation();
+  const { showNavbar, showRoster, showChat } = useNavigation();
 
   return (
     <UserActivityProvider>
-      <StyledLayout showNav={showNavbar} showRoster={showRoster}>
-        <StyledContent>
+      <StyledLayout showNav={showNavbar} showRoster={showRoster || showChat}>
+      <RealitimeSubscribeStateProvider>
+
+        <StyledContent>\
           <VideoTileGrid
             className="videos"
             noRemoteVideoView={<MeetingDetails />}
           />
-          {props.mode === MeetingMode.Spectator ?
-            <DynamicMeetingControls /> :
-            <MeetingControls />
-          }
+          <MeetingControls />
         </StyledContent>
         <NavigationControl />
+        </RealitimeSubscribeStateProvider>
       </StyledLayout>
     </UserActivityProvider>
   );

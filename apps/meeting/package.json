@@ -15,9 +15,11 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.1.2",
+    "storybook": "^6.3.7",
     "styled-components": "^5.0.0",
     "styled-system": "^5.1.5",
-    "throttle-debounce": "^2.3.0"
+    "throttle-debounce": "^2.3.0",
+    "uuid": "^8.3.2"
   },
   "scripts": {
     "lint": "eslint src --ext .js,.jsx --fix",

@@ -1,4 +1,4 @@
-// Copyright 2020-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: Apache-2.0
 
 import React, { FC } from 'react';
@@ -28,23 +28,23 @@ const App: FC = () => (
         <NotificationProvider>
           <Notifications />
           <ErrorProvider>
-              <MeetingProvider {...meetingConfig}>
-                <NavigationProvider>
-                  <Switch>
-                    <Route exact path={routes.HOME} component={Home} />
-                    <Route path={routes.DEVICE}>
-                      <NoMeetingRedirect>
-                        <DeviceSetup />
-                      </NoMeetingRedirect>
-                    </Route>
-                    <Route path={routes.MEETING}>
-                      <NoMeetingRedirect>
-                        <MeetingModeSelector />
-                      </NoMeetingRedirect>
-                    </Route>
-                  </Switch>
-                </NavigationProvider>
-              </MeetingProvider>
+            <MeetingProvider {...meetingConfig}>
+              <NavigationProvider>
+                <Switch>
+                  <Route exact path={routes.HOME} component={Home} />
+                  <Route path={routes.DEVICE}>
+                    <NoMeetingRedirect>
+                      <DeviceSetup />
+                    </NoMeetingRedirect>
+                  </Route>
+                  <Route path={routes.MEETING}>
+                    <NoMeetingRedirect>
+                      <Meeting />
+                    </NoMeetingRedirect>
+                  </Route>
+                </Switch>
+              </NavigationProvider>
+            </MeetingProvider>
           </ErrorProvider>
         </NotificationProvider>
       </Theme>
@@ -60,14 +60,6 @@ const Theme: React.FC = ({ children }) => {
       <GlobalStyles />
       {children}
     </ThemeProvider>
-  );
-};
-
-const MeetingModeSelector: React.FC = () => {
-  const { meetingMode } = useAppState();
-
-  return (
-    <Meeting mode={meetingMode} />
   );
 };
 
